@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-11-15T16:09:04Z",
+  "overall_pass": false,
+  "gates": [
+    {
+      "name": "ruff",
+      "started_at": "2026-11-15T16:09:01Z",
+      "returncode": 1,
+      "stdout": "UP037 [*] Remove quotes from type annotation\n  --> src\\task_service.py:28:55\n   |\n27 |     @classmethod\n28 |     def from_dict(cls, payload: dict[str, object]) -> \"Task\":\n   |                                                       ^^^^^^\n29 |         tags = payload.get(\"tags\", [])\n30 |         if not isinstance(tags, list):\n   |\nhelp: Remove quotes\n   |\n27 |     @classmethod\n   -     def from_dict(cls, payload: dict[str, object]) -> \"Task\":\n28 +     def from_dict(cls, payload: dict[str, object]) -> Task:\n29 |         tags = payload.get(\"tags\", [])\n   |\n\nTRY004 Prefer `TypeError` exception for invalid type\n  --> src\\task_service.py:31:13\n   |\n29 |         tags = payload.get(\"tags\", [])\n30 |         if not isinstance(tags, list):\n31 |             raise ValueError(\"Task tags must be a list of strings.\")\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n32 |         return cls(\n33 |             id=str(payload[\"id\"]),\n   |\n\nFound 2 errors.\n[*] 1 fixable with `--fix`.\n",
+      "stderr": "",
+      "passed": false
+    },
+    {
+      "name": "bandit",
+      "started_at": "2026-11-15T16:09:01Z",
+      "returncode": 0,
+      "stdout": "Run started:2026-11-15 16:09:02.863890+00:00\n\nTest results:\n\tNo issues identified.\n\nCode scanned:\n\tTotal lines of code: 223\n\tTotal lines skipped (#nosec): 0\n\tTotal potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0\n\nRun metrics:\n\tTotal issues (by severity):\n\t\tUndefined: 0\n\t\tLow: 0\n\t\tMedium: 0\n\t\tHigh: 0\n\tTotal issues (by confidence):\n\t\tUndefined: 0\n\t\tLow: 0\n\t\tMedium: 0\n\t\tHigh: 0\nFiles skipped (0):\n",
+      "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n[main]\tINFO\trunning on Python 3.12.16\n",
+      "passed": true
+    },
+    {
+      "name": "pytest",
+      "started_at": "2026-11-15T16:09:02Z",
+      "returncode": 0,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\\Users\\gaayu\\OneDrive\\Desktop\\MTECH\\1st sem\\ai augmented soft development\\2026NS93010_Assignment_WS\\.venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\gaayu\\OneDrive\\Desktop\\MTECH\\1st sem\\ai augmented soft development\\2026NS93010_Assignment_WS\\Assignment-1\\Part-1A\nplugins: anyio-4.16.0\ncollecting ... collected 8 items\n\ntests/test_contract.py::test_ac_1_add_task_persists_and_returns_record PASSED [ 12%]\ntests/test_contract.py::test_ac_2_tasks_sorted_by_priority PASSED        [ 25%]\ntests/test_contract.py::test_ac_3_tag_filter_matches_selected_tasks PASSED [ 37%]\ntests/test_contract.py::test_ac_4_todo_to_in_progress_is_allowed PASSED  [ 50%]\ntests/test_contract.py::test_ac_5_in_progress_to_done_is_allowed PASSED  [ 62%]\ntests/test_contract.py::test_ac_6_done_to_todo_is_rejected PASSED        [ 75%]\ntests/test_contract.py::test_ac_7_invalid_priority_is_rejected PASSED    [ 87%]\ntests/test_contract.py::test_ac_8_corrupt_json_recovers_to_empty PASSED  [100%]\n\n============================== 8 passed in 0.08s ==============================\n",
+      "stderr": "",
+      "passed": true
+    }
+  ]
+}

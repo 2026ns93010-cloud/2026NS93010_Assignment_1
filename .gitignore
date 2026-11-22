@@ -1,0 +1,25 @@
+﻿# Environment & Secrets (CRITICAL - Never commit keys!)
+.env
+.env.example
+.env.local
+*.pem
+*.key
+
+# Python Virtual Environment & Caches 
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# Testing, Linting & Tool Caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE & OS Files 
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
