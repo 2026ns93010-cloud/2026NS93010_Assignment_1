@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-11-22T14:10:56+00:00Z",
+  "overall_pass": true,
+  "gates": [
+    {
+      "name": "ruff",
+      "started_at": "2026-11-22T14:10:55+00:00Z",
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "bandit",
+      "started_at": "2026-11-22T14:10:55+00:00Z",
+      "returncode": 0,
+      "stdout": "Run started:2026-11-22 14:10:55.839581+00:00\n\nTest results:\n\tNo issues identified.\n\nCode scanned:\n\tTotal lines of code: 223\n\tTotal lines skipped (#nosec): 0\n\tTotal potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0\n\nRun metrics:\n\tTotal issues (by severity):\n\t\tUndefined: 0\n\t\tLow: 0\n\t\tMedium: 0\n\t\tHigh: 0\n\tTotal issues (by confidence):\n\t\tUndefined: 0\n\t\tLow: 0\n\t\tMedium: 0\n\t\tHigh: 0\nFiles skipped (0):\n",
+      "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n[main]\tINFO\trunning on Python 3.15.2\n",
+      "passed": true
+    },
+    {
+      "name": "pytest",
+      "started_at": "2026-11-22T14:10:55+00:00Z",
+      "returncode": 0,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- C:\\Users\\gaayu\\AppData\\Local\\Programs\\Python\\Python315\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\gaayu\\OneDrive\\Desktop\\MTECH\\1st sem\\ai augmented soft development\\2026NS93010_Assignment_WS\\2026NS93010_Assignment_1\\Part-1A\ncollecting ... collected 8 items\n\ntests/test_contract.py::test_ac_1_add_task_persists_and_returns_record PASSED [ 12%]\ntests/test_contract.py::test_ac_2_tasks_sorted_by_priority PASSED        [ 25%]\ntests/test_contract.py::test_ac_3_tag_filter_matches_selected_tasks PASSED [ 37%]\ntests/test_contract.py::test_ac_4_todo_to_in_progress_is_allowed PASSED  [ 50%]\ntests/test_contract.py::test_ac_5_in_progress_to_done_is_allowed PASSED  [ 62%]\ntests/test_contract.py::test_ac_6_done_to_todo_is_rejected PASSED        [ 75%]\ntests/test_contract.py::test_ac_7_invalid_priority_is_rejected PASSED    [ 87%]\ntests/test_contract.py::test_ac_8_corrupt_json_recovers_to_empty PASSED  [100%]\n\n============================== 8 passed in 0.10s ==============================\n",
+      "stderr": "",
+      "passed": true
+    }
+  ]
+}

@@ -3,14 +3,14 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def run_gate(name: str, command: list[str]) -> dict[str, object]:
-    start = datetime.utcnow().isoformat(timespec='seconds') + 'Z'
+    start = datetime.now(UTC).isoformat(timespec='seconds') + 'Z'
     try:
         completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=False)
         return {
@@ -39,14 +39,14 @@ def main() -> int:
         run_gate('pytest', [sys.executable, '-m', 'pytest', 'tests', '-v']),
     ]
     result = {
-        'timestamp': datetime.utcnow().isoformat(timespec='seconds') + 'Z',
+        'timestamp': datetime.now(UTC).isoformat(timespec='seconds') + 'Z',
         'overall_pass': all(gate['passed'] for gate in gates),
         'gates': gates,
     }
 
     evidence_dir = ROOT / 'evidence' / 'harness-results'
     evidence_dir.mkdir(parents=True, exist_ok=True)
-    run_file = evidence_dir / f"run_{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.json"
+    run_file = evidence_dir / f"run_{datetime.now(UTC).strftime('%Y%m%dT%H%M%S')}.json"
     run_file.write_text(json.dumps(result, indent=2), encoding='utf-8')
 
     print(json.dumps(result, indent=2))
